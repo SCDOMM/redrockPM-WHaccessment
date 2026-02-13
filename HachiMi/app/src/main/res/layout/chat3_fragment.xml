@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".View.fragment.Chat3Fragment">
+
+    <ImageView
+        android:id="@+id/chat3_iv_defaultImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@color/grey"
+        android:src="@drawable/ic_default_iv"
+        app:shapeAppearance="@style/ShapeAppearance.Cover"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/chat3_etv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入标题"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chat3_iv_defaultImage" />
+
+    <EditText
+        android:id="@+id/chat3_etv_describe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="分享我的动态"
+        app:layout_constraintTop_toBottomOf="@+id/chat3_etv_title" />
+
+    <TextView
+        android:id="@+id/chat3_tv_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请使用'#'+xxx的形式来添加标签"
+        app:layout_constraintTop_toBottomOf="@+id/chat3_etv_describe"
+        app:layout_constraintStart_toStartOf="@+id/chat3_etv_describe"
+        />
+
+    <TextView
+        android:id="@+id/chat3_tv_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="当前字数:0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toEndOf="@id/chat3_tv_hint"
+        app:layout_constraintTop_toBottomOf="@+id/chat3_etv_describe" />
+
+    <Button
+        android:id="@+id/chat3_btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="提交"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chat3_tv_number" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

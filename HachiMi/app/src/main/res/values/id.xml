@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tag_iv_cover" type="id"/>
+    <item name="tag_iv_profile" type="id"/>
+    <item name="tag_iv_icon" type="id"/>
+</resources>
