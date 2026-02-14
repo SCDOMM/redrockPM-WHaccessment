@@ -51,7 +51,8 @@ app-
    fragment  
 ### repository层用于进行数据，网络请求相关的操作。
 1. data
-data层封装了通用的响应数据类，其包含了一个泛型参数/泛型集合，使其可以与Gson配合，解析后端传回的复杂数据
+data层封装了通用的响应数据类，其包含了一个泛型参数/泛型集合，使其可以与Gson配合，解析后端传回的复杂数据[Uploading HachiMi_API_Collection.json…]()
+
 2. model
 model层封装了各个fragment或者activity需要用到的数据类，部分用于DTO的数据类使用@SerializedName标记了其json字段，以便于后端反序列化
 3. network
@@ -69,7 +70,8 @@ utils层封装了一批工具类，如以Gson为基础的JsonHandle，用于ESP�
 2. Docker/Linux服务器测试法
 我还没学，不会。
 3. 使用PostMan进行测试
-
+打开下述链接即可  
+https://a977628-4731127.postman.co/workspace/SCDOMM's-Workspace~9700a7be-dc73-4ad1-8c5a-09f0fdbcaca4/collection/50290426-4ae5745e-217e-4fca-83c7-03557ce3782b?action=share&source=copy-link&creator=50290426
 4. 实际展示
 - 登录与退出登录
   顾名思义  
