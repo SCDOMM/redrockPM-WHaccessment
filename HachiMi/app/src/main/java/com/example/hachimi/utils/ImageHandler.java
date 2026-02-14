@@ -45,7 +45,7 @@ public class ImageHandler {
         }
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        boolean success = bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+        boolean success = bitmap.compress(Bitmap.CompressFormat.JPEG, 80, out);
         if (!success) {
             Log.e("格式转换错误!", "BitmapToByte:compress failed!");
             return null;

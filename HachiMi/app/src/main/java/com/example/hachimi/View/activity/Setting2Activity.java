@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -185,6 +186,7 @@ public class Setting2Activity extends AppCompatActivity {
         ContentResolver resolver = this.getContentResolver();
         try {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(resolver, uri);
+            bitmap=compressImage(bitmap);
             s2IVprofile.setImageBitmap(bitmap);
             byte[] bytes = ImageHandler.fromBitmapToByte(bitmap);
             profileBase64 = Base64.encodeToString(bytes, Base64.DEFAULT);
@@ -194,5 +196,13 @@ public class Setting2Activity extends AppCompatActivity {
             Log.e("图片加载错误!", "setting2:" + e.getMessage());
             Toast.makeText(this, "图片加载失败！", Toast.LENGTH_SHORT).show();
         }
+    }
+    private Bitmap compressImage(Bitmap bitmap){
+        int newWidth = (int) (bitmap.getWidth() * 0.5);
+        int newHeight = (int) (bitmap.getHeight() * 0.5);
+
+        Matrix matrix = new Matrix();
+        matrix.postScale(0.5F, 0.5F); // 设置缩放比例
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 }

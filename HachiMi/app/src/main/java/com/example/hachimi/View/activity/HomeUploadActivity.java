@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -61,6 +62,9 @@ public class HomeUploadActivity extends AppCompatActivity {
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             HomeUploadActivity activity = weakRefer.get();
+            if(activity==null){
+                return;
+            }
             if (msg.what == -1) {
                 Toast.makeText(activity, "上传失败!请重新登录!", Toast.LENGTH_SHORT).show();
                 SharedPreferenceHandler.clearPersonnel(activity);
@@ -70,7 +74,9 @@ public class HomeUploadActivity extends AppCompatActivity {
                 activity.startActivity(intent);
             } else if (msg.what == 1) {
                 Toast.makeText(activity, "上传成功!", Toast.LENGTH_SHORT).show();
-                activity.finish();
+                Intent intent = new Intent(activity, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                activity.startActivity(intent);
             } else {
                 Toast.makeText(activity, "上传失败!请检查网络后重试!", Toast.LENGTH_SHORT).show();
             }
