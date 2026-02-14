@@ -16,6 +16,7 @@ import com.example.hachimi.repository.data.ResponseDataArray;
 import com.example.hachimi.repository.model.Chat1FragData;
 import com.example.hachimi.repository.model.Chat1UploadData;
 import com.example.hachimi.utils.JsonHandle;
+import com.example.hachimi.utils.SecurityHandle;
 import com.example.hachimi.utils.SharedPreferenceHandler;
 import com.google.gson.Gson;
 
@@ -66,7 +67,6 @@ public class ChatNet {
                     JsonHandle jsonHandle = new JsonHandle();
                     ResponseDataArray<Chat1FragData> decodedData = jsonHandle.decodeJSONArray(responseData, Chat1FragData.class);
                     ArrayList<Chat1FragData> list = decodedData.getData();
-
                     Message msg = new Message();
                     if (decodedData.equals(new ResponseDataArray<>())) {
                         msg.what = 0;
@@ -143,7 +143,6 @@ public class ChatNet {
         Gson gson = new Gson();
         String json = gson.toJson(data);
         RequestBody body = RequestBody.create(MediaType.get("application/json"), json);
-
         String[] token = SharedPreferenceHandler.getToken(rootView.getContext());
         if (token == null) {
             Toast.makeText(rootView.getContext(), "the token is null!", Toast.LENGTH_SHORT).show();
@@ -164,6 +163,7 @@ public class ChatNet {
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 String responseData = response.body().string();
+
                 rootView.post(() -> {
                     //工具类解析JSON
                     JsonHandle jsonHandle = new JsonHandle();
@@ -177,6 +177,7 @@ public class ChatNet {
                         handler.sendMessage(msg);
                         return;
                     }
+
                     if (decodedData.getStatus().equals("200")) {
                         msg.what = 1;
                     } else if (decodedData.getStatus().equals("401")) {
@@ -184,6 +185,16 @@ public class ChatNet {
                     } else {
                         msg.what = 0;
                     }
+
+                    String newAccessToken = response.header("New-Access-Token");
+                    if (newAccessToken!=null||!newAccessToken.isEmpty()){
+                        try {
+                            SecurityHandle.putNewAccessTokenToESP(rootView.getContext(),newAccessToken);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+
                     msg.obj = decodedData.getInfo();
                     handler.sendMessage(msg);
                 });

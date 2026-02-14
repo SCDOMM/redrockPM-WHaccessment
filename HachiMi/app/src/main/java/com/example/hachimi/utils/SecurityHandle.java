@@ -28,4 +28,10 @@ public class SecurityHandle {
                 EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         );
     }
+    public static void putNewAccessTokenToESP(Context context,String accessToken)throws Exception{
+        SharedPreferences sp=getEncryptedSharedPreferences(context);
+        sp.edit().putString("accessToken",accessToken).apply();
+    }
+
+
 }

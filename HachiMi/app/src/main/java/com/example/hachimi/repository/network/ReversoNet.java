@@ -14,6 +14,7 @@ import com.example.hachimi.repository.model.LogonResponseData;
 import com.example.hachimi.repository.model.RegisterData;
 import com.example.hachimi.repository.model.Setting2Data;
 import com.example.hachimi.utils.JsonHandle;
+import com.example.hachimi.utils.SecurityHandle;
 import com.example.hachimi.utils.SharedPreferenceHandler;
 import com.google.gson.Gson;
 
@@ -76,6 +77,16 @@ public class ReversoNet {
                         msg.what = 0;
                         msg.obj = decodedData.getInfo();
                     }
+
+                    String newAccessToken = response.header("New-Access-Token");
+                    if (newAccessToken!=null||!newAccessToken.isEmpty()){
+                        try {
+                            SecurityHandle.putNewAccessTokenToESP(rootView.getContext(),newAccessToken);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+
                     handler.sendMessage(msg);
                 });
             }
@@ -212,6 +223,16 @@ public class ReversoNet {
                     } else {
                         msg.what = 0;
                     }
+
+                    String newAccessToken = response.header("New-Access-Token");
+                    if (newAccessToken!=null||!newAccessToken.isEmpty()){
+                        try {
+                            SecurityHandle.putNewAccessTokenToESP(rootView.getContext(),newAccessToken);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+
                     msg.obj = decodedData.getInfo();
                     handler.sendMessage(msg);
                 });
@@ -256,6 +277,16 @@ public class ReversoNet {
                     } else {
                         msg.what = 0;
                     }
+
+                    String newAccessToken = response.header("New-Access-Token");
+                    if (newAccessToken!=null||!newAccessToken.isEmpty()){
+                        try {
+                            SecurityHandle.putNewAccessTokenToESP(rootView.getContext(),newAccessToken);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+
                     msg.obj = decodedData.getInfo();
                     handler.sendMessage(msg);
                 });

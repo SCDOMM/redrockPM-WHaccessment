@@ -12,15 +12,15 @@ public class Chat1UploadData {
     @SerializedName("author_account")
     private String authorAccount;
     @SerializedName("title")
-    private String tile;
+    private String title;
     @SerializedName("desc")
     private String desc;
     @SerializedName("cover_image")
     private String coverImage;
 
-    public Chat1UploadData(String authorAccount, String tile, String desc, String coverImage) {
+    public Chat1UploadData(String authorAccount, String title, String desc, String coverImage) {
         this.authorAccount = authorAccount;
-        this.tile = tile;
+        this.title = title;
         this.desc = desc;
         this.coverImage = coverImage;
     }
@@ -37,7 +37,7 @@ public class Chat1UploadData {
         return coverImage;
     }
 
-    public String getTile() {
-        return tile;
+    public String getTitle() {
+        return title;
     }
 }
