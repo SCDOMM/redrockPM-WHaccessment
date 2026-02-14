@@ -51,8 +51,7 @@ app-
    fragment  
 ### repository层用于进行数据，网络请求相关的操作。
 1. data
-data层封装了通用的响应数据类，其包含了一个泛型参数/泛型集合，使其可以与Gson配合，解析后端传回的复杂数据[Uploading HachiMi_API_Collection.json…]()
-
+data层封装了通用的响应数据类，其包含了一个泛型参数/泛型集合，使其可以与Gson配合，解析后端传回的复杂数据
 2. model
 model层封装了各个fragment或者activity需要用到的数据类，部分用于DTO的数据类使用@SerializedName标记了其json字段，以便于后端反序列化
 3. network
@@ -72,7 +71,9 @@ utils层封装了一批工具类，如以Gson为基础的JsonHandle，用于ESP�
 3. 使用PostMan进行测试
 打开下述链接即可  
 https://a977628-4731127.postman.co/workspace/SCDOMM's-Workspace~9700a7be-dc73-4ad1-8c5a-09f0fdbcaca4/collection/50290426-4ae5745e-217e-4fca-83c7-03557ce3782b?action=share&source=copy-link&creator=50290426
-4. 实际展示
+4. API文档
+放在目录下了 
+5. 实际展示
 - 登录与退出登录
   顾名思义  
   ![登录与退出登录](https://github.com/user-attachments/assets/6b77bd07-8e51-44ea-9232-73e9c7c2b7e9)
