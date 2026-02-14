@@ -1,4 +1,4 @@
-# redrockPM-WHaccessment
+
   红岩移动部门寒假考核项目
 ## 一.简要介绍
 这是一个简简单单的移动项目，集百语言之短，聚古今天下之糟粕，是乃以迪普西克，比利比利，CSDN，稀土撅金，菜鸡编程堆砌之屎山巨作，并由俺寻思之力黏合而成，其寻思，故称其规范屎；bug多，故称其稀烂，自亲濯淖污泥之中，拥抱于浊秽，以贴近尘埃之内，全获世之滋垢，皭然泥而绝滓者也。  
@@ -62,6 +62,7 @@ utils层封装了一批工具类，如以Gson为基础的JsonHandle，用于ESP�
 各种各样的fragment和adapter，activity就储存在里面。
 ## 三.功能展示
 项目后端仓库:https://github.com/SCDOMM/redrockBE-WHaccessment.git
+**注:该项目的安卓版本为API26，用其他安卓版本出bug了本人概不负责**
 1. 按寻思之力测试法
 想要进行该测试，首先您的电脑需要具备MySQL，需要在电脑上下载相应的后端项目，最后在任意IDE（Linux也可以）中运行其中的main.go文件即可。（记得按后端仓库中的教程添加测试数据）
 随后，您就可以测试该app的各种功能了。
@@ -70,19 +71,45 @@ utils层封装了一批工具类，如以Gson为基础的JsonHandle，用于ESP�
 3. 使用PostMan进行测试
 
 4. 实际展示
-
-
-
-
+- 登录与退出登录
+  顾名思义  
+  ![登录与退出登录](https://github.com/user-attachments/assets/6b77bd07-8e51-44ea-9232-73e9c7c2b7e9)
+- 查看主页和动态，个人资料，设置
+  顾名思义  
+  ![查看主页动态设置](https://github.com/user-attachments/assets/74a2fa56-2499-430f-89be-d64737ca052f)
+- 注销账号
+  顾名思义  
+  ![注销账号](https://github.com/user-attachments/assets/2f10f77c-55b5-42d3-a179-18ee30530cc2)
+- 注册新账号
+  顾名思义  
+  ![注册账号](https://github.com/user-attachments/assets/0c2772d8-04d3-4144-96d7-343ad11e7134)
+- 以管理员身份登录  
+  注意：管理员身份需要在后端手动修改
+  ![管理员身份登录](https://github.com/user-attachments/assets/79cbee83-d726-4e76-8491-1c8b6850344a)
+- 发布动态
+  顾名思义  
+  ![发布动态](https://github.com/user-attachments/assets/2e983fb4-0bf6-45cb-827f-755accfcc5af)
+- 修改账号资料
+  顾名思义  
+  ![修改账号资料](https://github.com/user-attachments/assets/222df8f9-1802-48e1-9009-97e0e6adf83a)
+- 删除动态(需要管理员身份)
+  顾名思义  
+  ![删除动态](https://github.com/user-attachments/assets/7221757b-4c27-4e7b-8d8c-fe2009352a2b)
+- 上传和删除档案(需要管理员身份)
+  顾名思义  
+  ![上传和删除档案](https://github.com/user-attachments/assets/7b124d5a-d0e0-47d0-a380-4903c57894ba)
+- 动态分类
+  **暂不支持**
 
 ## 四.心得体会
 千万别熬夜，熬夜了第二天压根没有精力敲代码，可能要思考很久甚至问迪普西克才能修一个bug  
 光看书是不行的，必须在实践中进行学习，在大风大浪中前进
 ## 五.有待提升优化的地方
 1. 动态的图片无法点开和放大，只能远观而不可亵玩。
-2. UI丑的一批，交给后人的智慧
+2. UI丑的一批，相信后人的智慧
 3. 后端没安在Linux服务器/Docker上，每次测试都得连热点
 4. network层的代码写的一坨，有条件可以将其封装为一个通用类
 5. Handler已经是老东西了，可能需要用其他的东西来代替它以实现线程间通信。
-6. “动态分类”功能完全没做，交给后人的智慧 
+6. “动态分类”功能完全没做，相信后人的智慧 
 7. 架构分层意义不明，纯粹是寻思出来的，需要换成更好的架构，如MVVM
+8. 杂七杂八的小细节，比如非法字符检验，以及若干可能的小bug
